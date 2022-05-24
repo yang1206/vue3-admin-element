@@ -10,14 +10,16 @@
 </template>
 <script  setup>
 import { Expand, Fold } from '@element-plus/icons-vue'
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
+import { useAppStore } from '@/stores/index'
 import { computed } from 'vue'
-const store = useStore()
+// const store = useStore()
+const appStore = useAppStore()
 const toggleClick = () => {
-  store.commit('app/changeSiderType')
+  appStore.changeSiderType()
 }
 const icon = computed(() => {
-  return store.getters.siderType
+  return appStore.siderWidth
 })
 </script>
 <style lang="scss" scoped>

@@ -21,11 +21,12 @@
 <script  setup>
 import { ref, reactive } from 'vue'
 import { Avatar, View } from '@element-plus/icons-vue'
-import { useStore } from 'vuex'
-const store = useStore()
+import router from '@/router'
+import {useUserStore} from '@/stores/index'
+const userStore = useUserStore()
 const form = ref({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '123456'
 })
 const formRef = ref()
 const rules = reactive({
@@ -38,10 +39,12 @@ const rules = reactive({
 })
 
 const handleLogin = () => {
-  console.log(form.value)
+  console.log(router)
   formRef.value.validate(async (valid) => {
     if (valid) {
-      store.dispatch('app/login', form.value)
+      userStore.login(form.value).then(() => {
+        router.replace('/')
+      })
     } else {
       console.log('error')
     }

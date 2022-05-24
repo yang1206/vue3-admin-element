@@ -1,11 +1,12 @@
 import { watch } from 'vue'
-import store from '@/store/index.js'
+import { useAppStore } from '@/stores/index.js'
 
 export const watchLang = (...cbs) => {
+  const appStore = useAppStore()
   watch(
-    () => store.getters.lang,
+    () => appStore.lang,
     () => {
-      cbs.forEach((cb) => cb(store.getters.lang))
+      cbs.forEach((cb) => cb(appStore.lang))
     },
     { deep: true }
   )

@@ -1,10 +1,17 @@
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 import router from './index'
-import store from '@/store'
+import { useUserStore } from '@/stores/index.js'
 const whiteList = ['/login']
+NProgress.configure({ showSpinner: false })
 router.beforeEach((to, from, next) => {
-   if (store.getters.token) {
+  NProgress.start()
+  const userStore = useUserStore()
+  if (userStore.getToken) {
      if (to.path === '/login') {
-       next('/')
+       NProgress.done()
+       next('/users')
+       
      } else {
        next()
      }
@@ -13,6 +20,10 @@ router.beforeEach((to, from, next) => {
        next()
      } else {
        next('/login')
+       NProgress.done()
      }
    }
+})
+router.afterEach(to =>{
+  NProgress.done()
 })

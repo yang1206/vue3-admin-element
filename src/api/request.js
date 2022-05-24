@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import { diffTokenTime } from '@/utils/auth.js'
-import store from '@/store'
+import { useUserStore } from '@/stores/index.js'
+
 const defBaseURL = window.__APP__GLOB__CONF__?.VITE_APP_GLOB_BASE_API || import.meta.env.VITE_APP_GLOB_BASE_API
 const service = axios.create({
   baseURL: defBaseURL,
@@ -11,7 +12,8 @@ service.interceptors.request.use(
   (config) => {
     if (localStorage.getItem('token')) {
       if (diffTokenTime()) {
-        store.dispatch('app/logout')
+        const userStore = useUserStore()
+        userStore.logout()
         return Promise.reject(new Error('token 失效了'))
       }
     }
@@ -30,6 +32,10 @@ service.interceptors.response.use(response => {
     return data
   } else {
     ElMessage.error(meta.msg)
+    if (meta.status == '400' && meta.msg == '无效token') {
+      const userStore = useUserStore()
+      userStore.logout()
+    }
     return Promise.reject(new Error(meta.msg))
   }
 }, error => {

@@ -1,6 +1,6 @@
 <template>
   <el-menu active-text-color="#ffd04b" background-color="#304156" class="el-menu-vertical-demo" :default-active="defaultActive"
-    text-color="#bfcbd9"  router unique-opened :collapse="!$store.getters.siderType">
+    text-color="#bfcbd9"  router unique-opened :collapse="!appStore.getSiderType">
     <el-sub-menu :index="item.id + ''" v-for="(item,index) in menusList" :key="item.id">
       <template #title>
         <el-icon>
@@ -22,8 +22,9 @@
 <script  setup>
 import { menuList } from '@/api/meun.js'
 import { ref } from 'vue'
+import { useAppStore } from '@/stores/index'
 const defaultActive = ref(sessionStorage.getItem('path') || '/users')
-
+const appStore = useAppStore()
 const iconList = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
 const icon = ref('menu')
 const menusList = ref([])

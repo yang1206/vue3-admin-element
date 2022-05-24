@@ -3,7 +3,7 @@
       <el-aside :width="asideWidth" class="sidebar-container">
         <Menu />
       </el-aside>
-      <el-container class="container" :class="{ hidderContainer: !$store.getters.siderType }">
+      <el-container class="container" :class="{ hidderContainer: !appStore.getSiderType }">
         <el-header>
           <Header />
         </el-header>
@@ -23,14 +23,14 @@
 import Menu from './Menu/index.vue'
 import Header from './Headers/index.vue'
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useAppStore } from '@/stores/index'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const store = useStore()
+const appStore = useAppStore()
 
 const asideWidth = computed(() => {
-  return store.getters.siderType ? '210px' : '67px'
+  return appStore.getSiderType ? '210px' : '67px'
 })
 </script>
 <style lang="scss" scoped>

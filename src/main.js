@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import pinia from './stores'
 import 'element-plus/dist/index.css'
 import '../src/styles/index.scss'
 import '@/router/permission'
@@ -23,4 +23,4 @@ for (const iconName in ELIcons) {
   app.component(iconName, ELIcons[iconName])
 }
 
-app.use(router).use(store).use(i18n).mount('#app')
+app.use(router).use(pinia).use(i18n).mount('#app')

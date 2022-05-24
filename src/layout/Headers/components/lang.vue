@@ -12,8 +12,8 @@
 <script  setup>
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { useStore } from 'vuex'
-const store = useStore()
+import { useAppStore } from '@/stores/index.js'
+const appStore = useAppStore()
 const i18n = useI18n()
 
 const currentLanguage = computed(() => {
@@ -21,7 +21,7 @@ const currentLanguage = computed(() => {
 })
 
 const handleCommand = (val) => {
-  store.commit('app/changeLang', val)
+  appStore.changeLang(val)
   localStorage.setItem('lang', val)
   i18n.locale.value = val
 }
