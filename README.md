@@ -4,5 +4,19 @@
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-## 目录结构
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn dev
+```
+
+### Compiles and minifies for production
+```
+yarn  build
+```
+
 
