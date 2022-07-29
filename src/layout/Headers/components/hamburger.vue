@@ -8,7 +8,7 @@
     </el-icon>
   </div>
 </template>
-<script  setup>
+<script lang="ts"  setup>
 import { Expand, Fold } from '@element-plus/icons-vue'
 // import { useStore } from 'vuex'
 import { useAppStore } from '@/stores/index'
@@ -19,7 +19,7 @@ const toggleClick = () => {
   appStore.changeSiderType()
 }
 const icon = computed(() => {
-  return appStore.siderWidth
+  return appStore.siderType
 })
 </script>
 <style lang="scss" scoped>
@@ -27,9 +27,10 @@ const icon = computed(() => {
   margin-right: 16px;
   box-sizing: border-box;
   cursor: pointer;
-  font-size:16px;
-  &:active{
-    font-size:18px
+  font-size: 16px;
+
+  &:active {
+    font-size: 18px
   }
 }
 </style>

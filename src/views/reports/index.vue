@@ -2,6 +2,6 @@
   <div>reports</div>
 </template>
 
-<script setup></script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped></style>

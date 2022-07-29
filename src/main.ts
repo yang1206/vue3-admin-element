@@ -5,7 +5,7 @@ import pinia from './stores'
 import 'element-plus/dist/index.css'
 import '../src/styles/index.scss'
 import '@/router/permission'
-import i18n from '@/i18n/index.js'
+import i18n from '@/i18n/index'
 
 const app = createApp(App)
 import * as ELIcons from '@element-plus/icons-vue'

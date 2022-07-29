@@ -12,8 +12,8 @@
 
   </div>
 </template>
-<script  setup>
-import { useUserStore } from '@/stores/index.js'
+<script lang="ts"  setup>
+import { useUserStore } from '@/stores'
 const userStore = useUserStore()
 const logout = () => {
   ElMessageBox.confirm(

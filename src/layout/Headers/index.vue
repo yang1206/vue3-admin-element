@@ -1,17 +1,17 @@
 <template>
   <div class="navbar">
-    <Hamburger/>
-    <Breadcrumb/>
+    <Hamburger />
+    <Breadcrumb />
     <div class="navbar-right">
       <!-- <dark/> -->
-      <Driver class="navbar-item"/>
-      <ScreenFull class="navbar-item"/>
+      <Driver class="navbar-item" />
+      <ScreenFull class="navbar-item" />
       <Lang class="navbar-item" />
       <Avatar class="navbar-item" />
     </div>
   </div>
 </template>
-<script  setup>
+<script  lang="ts" setup>
 import Hamburger from './components/hamburger.vue'
 import Breadcrumb from './components/breadcrumb.vue'
 // import Dark from './components/dark.vue'

@@ -5,13 +5,13 @@
     </el-icon>
   </div>
 </template>
-<script  setup>
+<script lang="ts"  setup>
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
 import { onMounted } from 'vue'
-import { steps } from './step.js'
-import { watchLang } from '@/i18n/watchlang.js'
-import i18n from '@/i18n/index.js'
+import { steps } from './step'
+import { watchLang } from '@/i18n/watchlang'
+import i18n from '@/i18n'
 const t = i18n.global.t
 let driver
 onMounted(() => {

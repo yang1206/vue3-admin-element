@@ -3,7 +3,7 @@
     <svg-icon :icon-class="icon ? 'exit-fullscreen' : 'fullscreen'"></svg-icon>
   </div>
 </template>
-<script  setup>
+<script lang="ts"  setup>
 import screenfull from 'screenfull'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 const icon = ref(screenfull.isFullscreen)

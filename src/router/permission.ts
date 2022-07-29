@@ -1,7 +1,7 @@
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from './index'
-import { useUserStore } from '@/stores/index.js'
+import { useUserStore } from '@/stores'
 const whiteList = ['/login']
 NProgress.configure({ showSpinner: false })
 router.beforeEach((to, from, next) => {

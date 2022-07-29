@@ -2,55 +2,62 @@
   <div class="login-container">
     <el-form ref="formRef" :model="form" class="login-form" :rules="rules">
       <div class="title-container">
-        <h3 class="title">{{$t('login.title')}}</h3>
+        <h3 class="title">{{ $t("login.title") }}</h3>
       </div>
       <el-form-item prop="username">
-        <el-input v-model="form.username" class="w-50 m-2" placeholder="请输入用户名" :prefix-icon="Avatar" />
+        <el-input
+          v-model="form.username"
+          class="w-50 m-2"
+          placeholder="请输入用户名"
+          :prefix-icon="Avatar"
+        />
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="form.password" class="w-50 m-2" type="password" show-password
-          placeholder="请输入密码" :prefix-icon="View" />
+        <el-input
+          v-model="form.password"
+          class="w-50 m-2"
+          type="password"
+          show-password
+          placeholder="请输入密码"
+          :prefix-icon="View"
+        />
       </el-form-item>
 
-      <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
-
+      <el-button class="login-button" type="primary" @click="handleLogin"
+        >登录</el-button
+      >
     </el-form>
   </div>
 </template>
 
-<script  setup>
-import { ref, reactive } from 'vue'
-import { Avatar, View } from '@element-plus/icons-vue'
-import router from '@/router'
-import {useUserStore} from '@/stores/index'
-const userStore = useUserStore()
+<script lang="ts"  setup>
+import { ref, reactive } from "vue";
+import { Avatar, View } from "@element-plus/icons-vue";
+import router from "@/router";
+import { useUserStore } from "@/stores/index";
+const userStore = useUserStore();
 const form = ref({
-  username: 'admin',
-  password: '123456'
-})
-const formRef = ref()
+  username: "admin",
+  password: "123456",
+});
+const formRef = ref();
 const rules = reactive({
-  username: [
-    { required: true, message: '请输入用户名', trigger: 'blur' }
-  ],
-  password: [
-    { required: true, message: '请输入密码', trigger: 'blur' }
-  ]
-})
+  username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
+  password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+});
 
 const handleLogin = () => {
-  console.log(router)
+  console.log(router);
   formRef.value.validate(async (valid) => {
     if (valid) {
       userStore.login(form.value).then(() => {
-        router.replace('/')
-      })
+        router.replace("/");
+      });
     } else {
-      console.log('error')
+      console.log("error");
     }
-  })
-}
-
+  });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -100,7 +107,7 @@ $cursor: #fff;
 
       .el-input__wrapper {
         width: 100%;
-        border: 1px solid rgba(255, 255, 255, 0.1)
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
 

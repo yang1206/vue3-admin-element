@@ -9,10 +9,10 @@
     </template>
   </el-dropdown>
 </template>
-<script  setup>
+<script lant="ts" setup>
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { useAppStore } from '@/stores/index.js'
+import { useAppStore } from '@/stores/index'
 const appStore = useAppStore()
 const i18n = useI18n()
 

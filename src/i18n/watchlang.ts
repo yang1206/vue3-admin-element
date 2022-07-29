@@ -1,7 +1,7 @@
 import { watch } from 'vue'
-import { useAppStore } from '@/stores/index.js'
+import { useAppStore } from '@/stores/index'
 
-export const watchLang = (...cbs) => {
+export const watchLang = (...cbs: any[]) => {
   const appStore = useAppStore()
   watch(
     () => appStore.lang,

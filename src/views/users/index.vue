@@ -113,9 +113,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import Pagination from '@/components/Pagination/index.vue'
-import { UserList, UserChangeStatus, editUser, getUserinfo, addUserInfo, userDelete, getRoleList, setRole } from '@/api/views.js'
+import { UserList, UserChangeStatus, editUser, getUserinfo, addUserInfo, userDelete, getRoleList, setRole } from '@/api/views'
 import { ref } from 'vue'
 import { Delete, Edit, Setting, Search } from '@element-plus/icons-vue'
 

@@ -1,18 +1,19 @@
 import { defineStore } from 'pinia'
+import { IAppStore } from '../interface'
 
 export const useAppStore = defineStore('app', {
-  state: () => ({
+  state: ():IAppStore => ({
     siderType: true,
     lang: localStorage.getItem('lang') || 'zh'
   }),
   getters: {
-    getSiderType(state) { return state.siderType }
+    getSiderType(state):boolean { return state.siderType }
   },
   actions: {
     changeSiderType() {
       this.siderType = !this.siderType
     },
-    changeLang(lang) {
+    changeLang(lang: any) {
       this.lang = lang
     }
   }

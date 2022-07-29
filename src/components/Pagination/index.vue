@@ -6,9 +6,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { defineProps, computed, defineEmits } from 'vue'
-import { scrollTo } from '@/utils/scroll-to.js'
+import { scrollTo } from '@/utils/scroll-to'
 const props = defineProps({
   total: {
     required: true,
