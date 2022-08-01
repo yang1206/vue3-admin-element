@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { Moon, Sunny } from '@element-plus/icons-vue'
 import { ref } from 'vue'
-import { toggleDark } from '@/composables'
+import { toggleDark } from '@/composables/useDark'
 const isdark = ref(
   localStorage.getItem('vueuse-color-scheme')
 )

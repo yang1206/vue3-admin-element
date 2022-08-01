@@ -3,7 +3,7 @@
     <Hamburger />
     <Breadcrumb />
     <div class="navbar-right">
-      <!-- <dark/> -->
+      <dark/>
       <Driver class="navbar-item" />
       <ScreenFull class="navbar-item" />
       <Lang class="navbar-item" />
@@ -14,7 +14,7 @@
 <script  lang="ts" setup>
 import Hamburger from './components/hamburger.vue'
 import Breadcrumb from './components/breadcrumb.vue'
-// import Dark from './components/dark.vue'
+import Dark from './components/dark.vue'
 import Avatar from './components/avatar.vue'
 import Lang from './components/lang.vue'
 import ScreenFull from './components/screenFull.vue'
@@ -26,7 +26,7 @@ import Driver from './components/driver/index.vue'
   width: 100%;
   height: 60px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--el-bg-color) !important;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   padding: 0 16px;
   display: flex;

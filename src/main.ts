@@ -9,7 +9,8 @@ import i18n from '@/i18n/index'
 
 const app = createApp(App)
 import * as ELIcons from '@element-plus/icons-vue'
-// import 'element-plus/theme-chalk/dark/css-vars.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import '@/styles/dark.scss'
 
 
 import 'virtual:svg-icons-register' // 引入注册脚本

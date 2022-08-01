@@ -1,4 +1,5 @@
 // sidebar
+$primary-color: var(--el-color-primary);
 $font:white;
 $border:#696969;
 
@@ -7,7 +8,7 @@ $menuText: #bfcbd9;
 $menuActiveText: #ffffff;
 $subMenuActiveText: #f4f4f5;
 
-$menuBg: #1d1e1f;
+$menuBg: var(--el-bg-color) !important;
 $menuHover: #263445;
 
 $subMenuBg: #1f2d3d;

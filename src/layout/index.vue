@@ -19,7 +19,7 @@
       </el-container>
     </el-container>
 </template>
-<script setup>
+<script lang="ts" setup>
 import Menu from './Menu/index.vue'
 import Header from './Headers/index.vue'
 import { computed } from 'vue'
