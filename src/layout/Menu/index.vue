@@ -1,5 +1,5 @@
 <template>
-  <el-menu active-text-color="#ffd04b"  class="el-menu-vertical-demo"
+  <el-menu   class="el-menu-vertical-demo"
     :default-active="defaultActive"  router unique-opened :collapse="!appStore.getSiderType">
     <el-sub-menu :index="item.id + ''" v-for="(item, index) in menusList" :key="item.id">
       <template #title>
