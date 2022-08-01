@@ -30,7 +30,7 @@ service.interceptors.response.use(
   (response) => {
     const { data, meta } = response.data;
     if (meta.status === 200 || meta.status === 201) {
-      ElMessage.success(meta.msg);
+      // ElMessage.success(meta.msg);
       return data;
     } else {
       ElMessage.error(meta.msg);

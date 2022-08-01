@@ -1,4 +1,4 @@
-import request from './request'
+import request from '@/service'
 
 export const menuList = () => {
   return request({

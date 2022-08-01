@@ -1,4 +1,4 @@
-import request from './request'
+import request from '@/service'
 
 export const UserList = (data) => {
   return request({
