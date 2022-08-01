@@ -1,7 +1,6 @@
-.el-avatar {
-  --el-avatar-background-color: none !important;
-  --el-avatar-bg-color: none !important;
-}
-.el-form-item__error{
-  padding-top: 5px !important;
+//自定义element主题
+:root {
+  --el-menu-bg-color: #304156;
+  --el-menu-text-color: #fff;
+  --el-menu-hover-bg-color:#072a4d !important;
 }

@@ -43,8 +43,8 @@ watch(
   font-weight: 600;
   cursor: pointer;
 
-  &:hover {
-    color: $menuBg;
-  }
+  // &:hover {
+  //   color: $menuBg;
+  // }
 }
 </style>

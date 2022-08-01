@@ -70,13 +70,14 @@ html.dark {
 	// --el-fill-color-blank: transparent;
 	// --el-mask-color: rgb(0 0 0 / 80%);
 	// --el-mask-color-extra-light: rgb(0 0 0 / 30%);
-
+  --el-menu-bg-color: #141414;
 	// * geeker-admin
 	--geeker-login-shadow-light: 5px 5px 15px rgb(255 255 255 / 20%);
 	--geeker-box-shadow-light: 0 0 10px rgb(255 255 255 / 10%);
 	--geeker-border-light: 1px solid #4c4c4d;
 	--geeker-color-light: 1px solid #4c4c4d;
 	--geeker-main-bg-color: #0d0d0d;
+	--geeker-menu-bg-color: #304156;
 	--geeker-popup-color: #060708;
 
 	// * wangEditor
@@ -165,7 +166,7 @@ html.dark {
 	.el-container {
 		.el-aside {
 			.menu {
-				background-color: var(--el-bg-color) !important;
+				background-color: var(--geeker-menu-bg-color) !important;
 				border-right: var(--geeker-border-light) !important;
 				color:var(--geeker-color-light) !important;
 				.logo {
@@ -174,13 +175,13 @@ html.dark {
 				.el-menu,
 				.el-sub-menu,
 				.el-sub-menu__title {
-					background-color: var(--el-bg-color) !important;
+					background-color: var(--geeker-menu-bg-color) !important;
 				}
 			}
 		}
 		.el-header {
 			.header {
-				background-color: var(--el-bg-color) !important;
+				background-color: var(--geeker-menu-bg-color) !important;
 				border-bottom-color: var(--el-border-color-light) !important;
 				.header-ri {
 					.icon-style {
@@ -215,7 +216,7 @@ html.dark {
 	// menu-popup
 	.el-menu--popup-container {
 		.el-menu {
-			background-color: var(--el-bg-color) !important;
+			background-color: var(--el-menu-bg-color) !important;
 		}
 	}
 
