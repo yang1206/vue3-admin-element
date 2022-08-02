@@ -25,7 +25,7 @@
 import Menu from './Menu/index.vue'
 import Header from './Headers/index.vue'
 import { computed } from 'vue'
-import { useAppStore } from '@/stores/index'
+import { useAppStore } from '@/stores'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

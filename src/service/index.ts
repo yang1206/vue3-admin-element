@@ -6,14 +6,13 @@ import { useUserStore } from "@/stores";
 import type { RequestConfig } from "./request/types";
 
 export interface IResponse<T> {
-  token: any;
   statusCode: number;
   desc: string;
   result: T;
 }
 
 // 重写返回类型
-interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<R>> {
+interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<T>> {
   data?: T;
 }
 
@@ -35,8 +34,7 @@ const request = new Request({
     },
     // 响应拦截器
     responseInterceptors: (result: AxiosResponse) => {
-      const { data, meta } = result.data;
-      console.log(data,meta);
+      const { meta } = result.data;
       if (meta.status === 200 || meta.status === 201) {
         // ElMessage.success(meta.msg);
         return result.data;
@@ -68,7 +66,7 @@ const HttpRequest = <D = any, T = any>(config: HttpRequestConfig<D, T>) => {
   if (method === "get" || method === "GET") {
     config.params = config.data;
   }
-  return request.request<IResponse<T>>(config);
+  return request.request<any>(config);
 };
 // 取消请求
 export const cancelRequest = (url: string | string[]) => {

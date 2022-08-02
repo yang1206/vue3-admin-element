@@ -5,27 +5,14 @@
         <h3 class="title">{{ $t("login.title") }}</h3>
       </div>
       <el-form-item prop="username">
-        <el-input
-          v-model="form.username"
-          class="w-50 m-2"
-          placeholder="请输入用户名"
-          :prefix-icon="Avatar"
-        />
+        <el-input v-model="form.username" class="w-50 m-2" placeholder="请输入用户名" :prefix-icon="Avatar" />
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          v-model="form.password"
-          class="w-50 m-2"
-          type="password"
-          show-password
-          placeholder="请输入密码"
-          :prefix-icon="View"
-        />
+        <el-input v-model="form.password" class="w-50 m-2" type="password" show-password placeholder="请输入密码"
+          :prefix-icon="View" />
       </el-form-item>
 
-      <el-button class="login-button" type="primary" @click="handleLogin"
-        >登录</el-button
-      >
+      <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
     </el-form>
   </div>
 </template>
@@ -33,21 +20,27 @@
 <script lang="ts"  setup>
 import { ref, reactive } from "vue";
 import { Avatar, View } from "@element-plus/icons-vue";
+import type { ElForm } from "element-plus";
 import router from "@/router";
-import { useUserStore } from "@/stores/index";
+import { useUserStore } from "@/stores/index"
+import { Login } from '@/api/interface'
 const userStore = useUserStore();
-const form = ref({
+
+
+const form = ref<Login.ReqLoginForm>({
   username: "admin",
   password: "123456",
 });
-const formRef = ref();
+
+// 定义 formRef（校验规则）
+type FormInstance = InstanceType<typeof ElForm>;
+const formRef = ref<FormInstance>()
 const rules = reactive({
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-});
+})
 
 const handleLogin = () => {
-  console.log(router);
   formRef.value.validate(async (valid) => {
     if (valid) {
       userStore.login(form.value).then(() => {
@@ -56,8 +49,8 @@ const handleLogin = () => {
     } else {
       console.log("error");
     }
-  });
-};
+  })
+}
 </script>
 
 <style lang="scss" scoped>
