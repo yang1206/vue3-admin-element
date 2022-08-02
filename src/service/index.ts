@@ -38,7 +38,7 @@ const request = new Request({
       const { data, meta } = result.data;
       console.log(data,meta);
       if (meta.status === 200 || meta.status === 201) {
-        ElMessage.success(meta.msg);
+        // ElMessage.success(meta.msg);
         return result.data;
       } else {
         ElMessage.error(meta.msg);

@@ -1,6 +1,7 @@
 export interface IAppStore{
     siderType:boolean,
-    lang:string
+    lang:string,
+    menuList:Array
 }
 
 export interface IUserStore{

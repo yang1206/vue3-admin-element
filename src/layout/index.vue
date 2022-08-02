@@ -1,23 +1,25 @@
 <template>
-    <el-container class="app-wrapper">
-      <el-aside :width="asideWidth" class="sidebar-container">
+  <el-container class="app-container">
+    <el-aside :width="asideWidth" class="sidebar-container">
+      <el-scrollbar>
         <Menu />
-      </el-aside>
-      <el-container class="container" :class="{ hidderContainer: !appStore.getSiderType }">
-        <el-header>
-          <Header />
-        </el-header>
-        <el-main>
+      </el-scrollbar>
+    </el-aside>
+    <el-container class="container" :class="{ hidderContainer: !appStore.getSiderType }">
+      <el-header>
+        <Header />
+      </el-header>
+      <el-main>
 
-          <!-- 给路由切换加入动画，需要给每个页面加入根元素 -->
-          <router-view v-slot="{ Component }">
-            <transition name="fade-transform" mode="out-in">
-              <component :is="Component" :key="route.path" />
-            </transition>
-          </router-view>
-        </el-main>
-      </el-container>
+        <!-- 给路由切换加入动画，需要给每个页面加入根元素 -->
+        <router-view v-slot="{ Component }">
+          <transition name="fade-transform" mode="out-in">
+            <component :is="Component" :key="route.path" />
+          </transition>
+        </router-view>
+      </el-main>
     </el-container>
+  </el-container>
 </template>
 <script lang="ts" setup>
 import Menu from './Menu/index.vue'
@@ -58,5 +60,4 @@ const asideWidth = computed(() => {
 :deep(.el-header) {
   padding: 0;
 }
-
 </style>

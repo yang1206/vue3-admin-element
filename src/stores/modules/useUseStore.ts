@@ -9,32 +9,32 @@ export const useUserStore = defineStore("user", {
   }),
   getters: {
     getToken(state) {
-      return state.token;
+      return state.token
     },
   },
   actions: {
     setToken(token) {
-      this.token = token;
-      localStorage.setItem("token", token);
+      this.token = token
+      localStorage.setItem("token", token)
     },
     login(userInfo) {
       return new Promise<void>((resolve, reject) => {
         loginApi(userInfo)
           .then((res) => {
-            this.setToken(res.token);
-            console.log(router);
-            router.replace("/");
-            setTokenTime();
-            resolve();
+            this.setToken(res.token)
+            router.replace("/")
+            setTokenTime()
+            resolve()
           })
-          .catch((err) => reject(err));
+          .catch((err) => reject(err))
       });
     },
 
     logout() {
-      this.setToken("");
-      localStorage.clear();
-      router.replace("/login");
+      this.setToken("")
+      localStorage.removeItem('token')
+      localStorage.removeItem('tokenTime')
+      router.replace("/login")
     },
   },
 });

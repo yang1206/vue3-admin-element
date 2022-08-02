@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar header">
     <Hamburger />
     <Breadcrumb />
     <div class="navbar-right">
@@ -26,7 +26,6 @@ import Driver from './components/driver/index.vue'
   width: 100%;
   height: 60px;
   overflow: hidden;
-  background-color: var(--el-bg-color) !important;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   padding: 0 16px;
   display: flex;
@@ -44,7 +43,7 @@ import Driver from './components/driver/index.vue'
       display: inline-block;
       margin-left: 18px;
       font-size: 22px;
-      color: #5a5e66;
+      // color: #5a5e66;
       box-sizing: border-box;
       cursor: pointer;
     }
