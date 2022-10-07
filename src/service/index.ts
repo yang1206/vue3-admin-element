@@ -6,13 +6,11 @@ import { useUserStore } from "@/stores";
 import type { RequestConfig } from "./request/types";
 
 export interface IResponse<T> {
-  statusCode: number;
-  desc: string;
-  result: T;
+  [x: string]: any
 }
 
 // 重写返回类型
-interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<T>> {
+interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<R>> {
   data?: T;
 }
 
@@ -62,19 +60,18 @@ const request = new Request({
  * @returns {Promise}
  */
 const HttpRequest = <D = any, T = any>(config: HttpRequestConfig<D, T>) => {
-  const { method = "GET" } = config;
-  if (method === "get" || method === "GET") {
-    config.params = config.data;
-  }
-  return request.request<any>(config);
-};
+  const { method = 'GET' } = config
+  if (method === 'get' || method === 'GET') config.params = config.data
+
+  return request.request<IResponse<T>>(config)
+}
 // 取消请求
 export const cancelRequest = (url: string | string[]) => {
-  return request.cancelRequest(url);
-};
+  return request.cancelRequest(url)
+}
 // 取消全部请求
 export const cancelAllRequest = () => {
-  return request.cancelAllRequest();
-};
+  return request.cancelAllRequest()
+}
 
-export default HttpRequest;
+export default HttpRequest

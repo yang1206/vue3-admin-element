@@ -21,7 +21,7 @@ export const useUserStore = defineStore("user", {
     login(userInfo: Login.ReqLoginForm) {
       return new Promise<void>((resolve, reject) => {
         loginApi(userInfo)
-          .then((data) => {
+          .then((data) => {        
             this.setToken(data.token);
             router.replace("/");
             setTokenTime();

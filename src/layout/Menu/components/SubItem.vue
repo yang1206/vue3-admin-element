@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps } from 'vue'
 const iconList = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
 const icon = ref('menu')
 defineProps<{ menusList: Array<any> }>()

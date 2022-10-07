@@ -14,6 +14,7 @@
 </template>
 <script lang="ts"  setup>
 import { useUserStore } from '@/stores'
+import { ElMessageBox } from 'element-plus';
 const userStore = useUserStore()
 const logout = () => {
   ElMessageBox.confirm(

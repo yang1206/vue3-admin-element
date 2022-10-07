@@ -5,15 +5,23 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
-import { resolve } from 'path'
+import path, { resolve } from 'node:path'
+const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      imports: [
+        'vue',
+        'vue-router',
+      ],
+      dirs: [path.resolve(pathSrc, 'composables')],
+      vueTemplate: true,
+      dts: path.resolve(pathSrc, 'types/auto-import.d.ts'),
     }),
     Components({
+      dts: path.resolve(pathSrc, 'types/components.d.ts'),
       resolvers: [ElementPlusResolver()],
     }),
     createSvgIconsPlugin({
